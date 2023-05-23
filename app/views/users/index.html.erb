@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <div class="col-4">
+        <%= render 'books/side', users: @user %>
+      </div>
+
+      <div class="col-8">
+        <h1>Users</h1>
+        <table class="table ml-3">
+            <dif class="table-head">
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th></th>
+              </tr>
+            </dif>
+          <% @users.each do |f| %>
+            <dif class="table-body">
+             <tr>
+               <tb><%= image_tag f.get_profile_image(100,100) %></tb>
+               <td><%= f.name %></td>
+               <td><%= link_to "Show", user_path(f.id) %></td>
+             </tr>
+            </dif>
+          <% end %>
+        </table>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="error">
+<% unless @book.nil? %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors detected
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<% unless @user.nil? %>
+  <% if @user.errors.any? %>
+    <%= @user.errors.count %>errors detected
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</div>

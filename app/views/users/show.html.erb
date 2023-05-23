@@ -1,16 +1,13 @@
 <div class="container">
     <div class="row">
       <div class="col-4">
-        <%= render 'books/side', users: @users %>
+        <%= render 'books/side', users: @user %>
       </div>
-    </div>
-    
-    <div class="row">
+      
       <div class="col-8">
         <h1>Books</h1>
-        <% @books.each do |post_image| %>
         <div>
-            <table>
+            <table class="table ml-3 table-hover">
               <dif class="table-head">
                 <tr>
                   <th></th>
@@ -22,9 +19,9 @@
                <dif class="table-body">
                  <tr>
                    <tb>
-                      <!-- link_to user_show_path(user.id) do %>-->
+                      <!-- % link_to user_show_path(user.id) do %>-->
                         <%= image_tag @user.get_profile_image(100,100) %>
-                      <!-- end %>-->
+                      <!-- % end %>-->
                    </tb>
                    <td><%= link_to book.title, book_path(book.id) %></td>
                    <td><%= book.opinion %></td>
@@ -33,7 +30,6 @@
               <% end %>
             </table>
         </div>
-        <% end %>
       </div>
     </div>
 </div>

@@ -1,16 +1,25 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <h2>User info</h2>
 <div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  
+  <%= image_tag users.get_profile_image(100,100) %>
+  <p>name<%= users.name %></p>
+  <p>introduction<%= users.introduction %></p>
+  <!--%= link_to "aa", edit_user_url, class: "btn btn-lite btn-outline-secondary" %>--
+    <i class="fas fa-user-cog"></i>
+  <!--% end %-->
 </div>
 
 
 <h2>New book</h2>
+  <%= render 'books/error' %>
+
 <%= form_with model: @book do |f| %>
   <h4>Title</h4>
    <%= f.text_field :title %>
   <h4>Opinion</h4>
    <%= f.text_area :opinion %>
-   <%= f.submit 'Create Book' %>
+   <%= f.submit 'Create Book',class: "btn btn-success text-white" %>
 <% end %>
