@@ -7,22 +7,22 @@
       <div class="col-8">
         <h1>Book detail</h1>
         <table class="table ml-3">
-          <dif class="table-body">
+          <tbody class="table table-hover">
             <tr>
-              <tb>
-                <!-- % link_to user_show_path(user.id) do %>-->
-                  <%= image_tag @show.user.get_profile_image(100,100) %>
-                <!-- % end %>-->
-                <%= link_to @show.user.name, user_path(@show.user.id) %>
-              </tb>
-              <td><%= link_to @show.title, book_path(@show.id) %></td>
-              <td><%= @show.opinion %></td>
+              <td class="col-3">
+                <%= link_to user_path(@show.user.id),method: :get do %>
+                <%= image_tag @show.user.get_profile_image(100,100) %><br>
+                <%= @show.user.name%>
+                <% end %>
+              </td>
+              <td class="col-3"><%= link_to @show.title, book_path(@show.id) %></td>
+              <td class="col-3"><%= @show.opinion %></td>
               <% if @show.user.id == current_user.id %>
-              <td><%= link_to "Edit", edit_book_path(@show.id),class: "btn btn-success text-white" %></td>
-              <td><%= link_to "Destroy", book_path(@show.id), method: :delete,class: "btn btn-danger text-white" %></tb>
+              <td class="col-1"><%= link_to "Edit", edit_book_path(@show.id),class: "btn btn-success text-white" %></td>
+              <td class="col-1"><%= link_to "Destroy", book_path(@show.id), method: :delete,class: "btn btn-danger text-white" %></td>
               <% end %>
             </tr>
-          </dif>
+          </tbody>
         </table>
       </div>
     </div>

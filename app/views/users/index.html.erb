@@ -6,22 +6,22 @@
 
       <div class="col-8">
         <h1>Users</h1>
-        <table class="table ml-3">
-            <dif class="table-head">
+        <table class="table ml-3 table-hover">
+            <thead>
               <tr>
                 <th>Image</th>
                 <th>Name</th>
                 <th></th>
               </tr>
-            </dif>
+            </thead>
           <% @users.each do |f| %>
-            <dif class="table-body">
+            <tbody>
              <tr>
-               <tb><%= image_tag f.get_profile_image(100,100) %></tb>
+               <td><%= image_tag f.get_profile_image(100,100) %></td>
                <td><%= f.name %></td>
                <td><%= link_to "Show", user_path(f.id) %></td>
              </tr>
-            </dif>
+            </tbody>
           <% end %>
         </table>
       </div>

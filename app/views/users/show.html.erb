@@ -18,11 +18,11 @@
              <% @books.each do |book| %>
                <dif class="table-body">
                  <tr>
-                   <tb>
+                   <td>
                       <!-- % link_to user_show_path(user.id) do %>-->
                         <%= image_tag @user.get_profile_image(100,100) %>
                       <!-- % end %>-->
-                   </tb>
+                   </td>
                    <td><%= link_to book.title, book_path(book.id) %></td>
                    <td><%= book.opinion %></td>
                  </tr>

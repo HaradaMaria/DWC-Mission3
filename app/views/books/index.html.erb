@@ -6,26 +6,26 @@
 
       <div class="col-8">
         <h1>Books</h1>
-        <table class="table ml-3">
-            <dif class="table-head">
+        <table class="table ml-3 table-hover">
+            <thead>
               <tr>
-                <th></th>
-                <th>Title</th>
-                <th>opinion</th>
+                <th class="col-1"></th>
+                <th class="col-1">Title</th>
+                <th class="col-4">opinion</th>
               </tr>
-            </dif>
+            </thead>
           <% @books.each do |book| %>
-            <dif class="table-body table-hover">
+            <tbody>
              <tr>
-               <tb>
-                  <!-- % link_to user_show_path(user.id) do %>-->
+               <td class="col-1">
+                  <%= link_to user_path(book.user.id),method: :get do %>
                     <%= image_tag book.user.get_profile_image(100,100) %>
-                  <!-- % end %>-->
-               </tb>
-               <td><%= link_to book.title, book_path(book.id) %></td>
-               <td><%= book.opinion %></td>
+                  <% end %>
+               </td>
+               <td class="col-1 text-break"><%= link_to book.title, book_path(book.id) %></td>
+               <td class="col-4 text-break"><%= book.opinion %></td>
              </tr>
-            </dif>
+            </tbody>
           <% end %>
         </table>
       </div>

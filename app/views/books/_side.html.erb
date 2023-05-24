@@ -1,25 +1,34 @@
 <div>
   <%= flash[:notice] %>
 </div>
+<div lass="col-12">
+  <h2>User info</h2>
+  <div>
+    <%= image_tag users.get_profile_image(100,100) %>
+    <table class="table ml-3">
+      <tr>
+        <th class="col-4">name</th>
+        <td class="list col-8"><%= users.name %></td>
+      </tr>
+      <tr>
+        <th class="col-4">introduction</th>
+        <td class="list col-8"><%= users.introduction %></td>
+      </tr>
+    </table>
+    <%= link_to edit_user_path(users.id),class: "btn btn-lite btn-outline-secondary col-12",method: :get do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
 
-<h2>User info</h2>
-<div>
-  <%= image_tag users.get_profile_image(100,100) %>
-  <p>name<%= users.name %></p>
-  <p>introduction<%= users.introduction %></p>
-  <!--%= link_to "aa", edit_user_url, class: "btn btn-lite btn-outline-secondary" %>--
-    <i class="fas fa-user-cog"></i>
-  <!--% end %-->
-</div>
 
-
-<h2>New book</h2>
+  <h2>New book</h2>
   <%= render 'books/error' %>
 
-<%= form_with model: @book do |f| %>
-  <h4>Title</h4>
-   <%= f.text_field :title %>
-  <h4>Opinion</h4>
-   <%= f.text_area :opinion %>
-   <%= f.submit 'Create Book',class: "btn btn-success text-white" %>
-<% end %>
+  <%= form_with model: @book do |f| %>
+    <h4>Title</h4>
+     <%= f.text_field :title %>
+    <h4>Opinion</h4>
+     <%= f.text_area :opinion %>
+     <%= f.submit 'Create Book',class: "btn btn-success text-white" %>
+  <% end %>
+</div>
