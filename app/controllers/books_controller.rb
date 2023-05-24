@@ -31,7 +31,6 @@ before_action :is_matching_login_user, only:[:edit, :update,]
 
   def edit
     @book = Book.find(params[:id])
-    
   end
 
 
@@ -59,7 +58,7 @@ before_action :is_matching_login_user, only:[:edit, :update,]
   private
 
   def book_params
-    params.require(:book).permit(:title,:opinion)
+    params.require(:book).permit(:title,:body)
   end
   
   def is_matching_login_user

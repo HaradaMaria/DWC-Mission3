@@ -1,29 +1,29 @@
 <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-md-3">
         <%= render 'side', users: @user %>
       </div>
 
-      <div class="col-8">
+      <div class="col-md-8 offset-md-1">
         <h1>Books</h1>
         <table class="table ml-3 table-hover">
             <thead>
               <tr>
                 <th class="col-1"></th>
                 <th class="col-1">Title</th>
-                <th class="col-4">opinion</th>
+                <th class="col-4">Opinion</th>
               </tr>
             </thead>
           <% @books.each do |book| %>
             <tbody>
              <tr>
-               <td class="col-1">
+               <td class="col-3">
                   <%= link_to user_path(book.user.id),method: :get do %>
                     <%= image_tag book.user.get_profile_image(100,100) %>
                   <% end %>
                </td>
-               <td class="col-1 text-break"><%= link_to book.title, book_path(book.id) %></td>
-               <td class="col-4 text-break"><%= book.opinion %></td>
+               <td class="col-3 text-break"><%= link_to book.title, book_path(book.id) %></td>
+               <td class="col-5 text-break"><%= book.body %></td>
              </tr>
             </tbody>
           <% end %>

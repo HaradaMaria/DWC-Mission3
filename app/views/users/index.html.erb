@@ -1,25 +1,25 @@
 <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-md-3">
         <%= render 'books/side', users: @user %>
       </div>
 
-      <div class="col-8">
+      <div class="col-md-8 offset-md-1">
         <h1>Users</h1>
         <table class="table ml-3 table-hover">
             <thead>
               <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th></th>
+                <th class="col-3">Image</th>
+                <th class="col-3">Name</th>
+                <th class="col-3"></th>
               </tr>
             </thead>
           <% @users.each do |f| %>
             <tbody>
              <tr>
-               <td><%= image_tag f.get_profile_image(100,100) %></td>
-               <td><%= f.name %></td>
-               <td><%= link_to "Show", user_path(f.id) %></td>
+               <td class="col-3"><%= image_tag f.get_profile_image(100,100) %></td>
+               <td class="col-5"><%= f.name %></td>
+               <td class="col-2"><%= link_to "Show", user_path(f.id) %></td>
              </tr>
             </tbody>
           <% end %>

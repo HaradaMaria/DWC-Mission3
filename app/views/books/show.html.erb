@@ -1,22 +1,22 @@
 <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-md-3">
         <%= render 'side', users: @user %>
       </div>
-
-      <div class="col-8">
+      
+      <div class="col-md-8 offset-md-1">
         <h1>Book detail</h1>
         <table class="table ml-3">
           <tbody class="table table-hover">
             <tr>
-              <td class="col-3">
+              <td class= class="col-md-3">
                 <%= link_to user_path(@show.user.id),method: :get do %>
                 <%= image_tag @show.user.get_profile_image(100,100) %><br>
                 <%= @show.user.name%>
                 <% end %>
               </td>
               <td class="col-3"><%= link_to @show.title, book_path(@show.id) %></td>
-              <td class="col-3"><%= @show.opinion %></td>
+              <td class="col-3"><%= @show.body %></td>
               <% if @show.user.id == current_user.id %>
               <td class="col-1"><%= link_to "Edit", edit_book_path(@show.id),class: "btn btn-success text-white" %></td>
               <td class="col-1"><%= link_to "Destroy", book_path(@show.id), method: :delete,class: "btn btn-danger text-white" %></td>
